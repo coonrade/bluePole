@@ -1,0 +1,159 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>My Page</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+
+<script type="text/javascript">
+//loader animation
+$( document ).on( "click", ".show-page-loading-msg", function() {
+    var $this = $( this ),
+        theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+        msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+        textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+        textonly = !!$this.jqmData( "textonly" );
+        html = $this.jqmData( "html" ) || "";
+    $.mobile.loading( "show", {
+            text: msgText,
+            textVisible: textVisible,
+            theme: theme,
+            textonly: textonly,
+            html: html
+    });
+})
+.on( "click", ".hide-page-loading-msg", function() {
+    $.mobile.loading( "hide" );
+});
+
+$(document).ready(clearPage());
+
+
+function clearPage(){
+	
+	//file = document.getElementById("file");
+	//console.log("TEST MOTHERFUCKER");
+	//console.dir(file);
+	//document.getElementById("message").value="";
+
+}
+
+
+
+</script>
+
+    
+<style>
+.myButtonLink {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url('leaf.png') bottom;
+	text-indent: -99999px;
+}
+.myButtonLink:active {
+	background-position: 0 0;
+	
+}
+
+#file {
+	/*opacity:0.0;*/
+	background-color:#0C3;
+}
+
+#attachmentButton {
+	background-color:#0C3;
+}
+
+
+</style>
+    
+    
+</head> 
+<body> 
+
+<div data-role="page" id="home">
+
+	<div data-role="header">
+		<h1>Police App</h1>
+	</div><!-- /header -->
+
+    <div data-role="content" style="position: absolute; top: 25%; left: 25%; margin-top: -50px; margin-left: -50px;">	
+	
+        <a class="myButtonLink" href="http://police.ucmerced.edu" data-role="button" >Leaf</a>
+        
+	</div><!-- /content -->
+    
+    
+    
+    <div data-role="content" style="position: absolute; top: 25%; right: 25%; margin-top: -50px; margin-right: -50px;"">
+    
+    <a class="myButtonLink" href="tel:18186718414" data-role="button" >Leaf</a>
+    
+    </div>
+    
+    <div data-role="content" style="position: absolute; bottom: 25%; left: 25%; margin-bottom: -50px; margin-left: -50px;"">	
+	
+        
+        
+        <a class="myButtonLink" href="index3.html" data-role="button" >Leaf</a>
+        
+	</div><!-- /content -->
+    
+    
+    
+    <div data-role="content" style="position: absolute; bottom: 25%; right: 25%; margin-bottom: -50px; margin-right: -50px;"">
+    
+    <a class="myButtonLink" href="#attachment" data-role="button" data-transition="slide">Leaf</a>
+    
+    </div>
+    
+    
+    
+    
+    
+    <div data-role="footer" style="position: absolute; bottom: 0%; width: 100%">
+		<h1>Police Footer</h1>
+	</div>
+    
+
+</div><!-- /page -->
+
+<div data-role="page" id="page1">
+	<p>second page</p>
+</div>
+
+
+
+<div data-role="page" id="attachment" data-transition="slide" >
+
+    <form enctype="multipart/form-data" action="http://russianator.alwaysdata.net/upload.php" method="post">
+    
+    <div>
+    <label for="message">Message:</label> 
+    <textarea name="message" id="message" cols="20" rows="8"></textarea>
+    </div>
+    
+   <div>
+    <label for="file">File</label> 
+    <input type="file" name="file" id="file">
+	</div>
+    
+    <div>
+    <input type="submit" value="submit" name="submit" id="submit" class="show-page-loading-msg" data-theme="d" data-textonly="false" data-textvisible="false" data-msgtext="">
+    </div>
+    
+    
+    </form>   
+       
+</div>
+
+</body>
+</html>
+
+
+
+
+
