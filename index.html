@@ -8,7 +8,7 @@
 	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
 
 <script type="text/javascript">
-//loader animation-
+//loader animation
 $( document ).on( "click", ".show-page-loading-msg", function() {
     var $this = $( this ),
         theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
@@ -40,7 +40,9 @@ function clearPage(){
 
 }
 
-
+$('.webRedirectButton').click(function() {
+  navigator.app.loadUrl('http://www.google.com', { openExternal:true } ); 
+});
 
 </script>
 
@@ -58,9 +60,59 @@ function clearPage(){
 	
 }
 
+
+
+.websiteButton {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url('website.png') bottom;
+	text-indent: -99999px;
+}
+.websiteButton:active {
+	background-position: 0 0;
+	
+}
+
+.phoneButton {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url('phone.png') bottom;
+	text-indent: -99999px;
+}
+.phoneButton:active {
+	background-position: 0 0;
+	
+}
+
+.notepadButton {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url('notepad.png') bottom;
+	text-indent: -99999px;
+}
+.notepadButton:active {
+	background-position: 0 0;
+	
+}
+
+.cameraButton {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url('camera.png') bottom;
+	text-indent: -99999px;
+}
+.cameraButton:active {
+	background-position: 0 0;
+	
+}
+
 #file {
 	/*opacity:0.0;*/
-	background-color:#0C3;
+	color:#0C3;
 }
 
 #attachmentButton {
@@ -74,15 +126,17 @@ function clearPage(){
 </head> 
 <body> 
 
+
+
 <div data-role="page" id="home">
 
 	<div data-role="header">
-		<h1>Police App</h1>
+	<h1>Police App</h1>
 	</div><!-- /header -->
 
     <div data-role="content" style="position: absolute; top: 25%; left: 25%; margin-top: -50px; margin-left: -50px;">	
 	
-        <a class="myButtonLink" href="http://police.ucmerced.edu" data-role="button" >Leaf</a>
+        <a class="websiteButton" href="http://police.ucmerced.edu/" data-role="button" >Leaf</a>
         
 	</div><!-- /content -->
     
@@ -90,7 +144,7 @@ function clearPage(){
     
     <div data-role="content" style="position: absolute; top: 25%; right: 25%; margin-top: -50px; margin-right: -50px;"">
     
-    <a class="myButtonLink" href="tel:18186718414" data-role="button" >Leaf</a>
+    <a class="phoneButton" href="tel:12092282677" data-role="button" >Leaf</a>
     
     </div>
     
@@ -98,7 +152,7 @@ function clearPage(){
 	
         
         
-        <a class="myButtonLink" href="index3.html" data-role="button" >Leaf</a>
+        <a class="notepadButton" href="#report" data-role="button" >Leaf</a>
         
 	</div><!-- /content -->
     
@@ -106,7 +160,7 @@ function clearPage(){
     
     <div data-role="content" style="position: absolute; bottom: 25%; right: 25%; margin-bottom: -50px; margin-right: -50px;"">
     
-    <a class="myButtonLink" href="#attachment" data-role="button" data-transition="slide">Leaf</a>
+    <a class="cameraButton" href="#attachment" data-role="button" data-transition="slide">Leaf</a>
     
     </div>
     
@@ -124,6 +178,69 @@ function clearPage(){
 <div data-role="page" id="page1">
 	<p>second page</p>
 </div>
+
+
+    <div data-role="page" id="report" data-transition="slide" >
+
+    <form enctype="multipart/form-data" action="http://russianator.alwaysdata.net/email.php" method="post">
+    
+    <div>
+    <label for="name">Your Name:</label> 
+    <textarea name="name" id="name"></textarea>
+    </div>
+    
+    <div>
+    <label for="numberContact">Phone Number or Email:</label> 
+    <textarea name="numberContact" id="numberContact"></textarea>
+    </div>
+    
+    
+    <div>
+    <p>Select the type of incident or crime that occurred:<p>
+    <input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
+<label for="checkbox-1">Drugs</label>
+
+<input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+<label for="checkbox-2">Theft</label>
+
+<input type="checkbox" name="checkbox-3" id="checkbox-3" class="custom" />
+<label for="checkbox-3">Fraud</label>
+
+<input type="checkbox" name="checkbox-4" id="checkbox-4" class="custom" />
+<label for="checkbox-4">Assault</label>
+
+<input type="checkbox" name="checkbox-5" id="checkbox-5" class="custom" />
+<label for="checkbox-5">Other</label>
+    </div>
+    
+    
+    <div>
+    <label for="incidentLocation">Enter the location or address where the incident occurred:</label> 
+    <textarea name="incidentLocation" id="incidentLocation"></textarea>
+    </div>
+    
+    <div>
+    <label for="incidentTime">Dates and times when the incident occurred:</label> 
+    <textarea name="incidentTime" id="incidentTime"></textarea>
+    </div>
+    
+    
+    <div>
+    <label for="summary">Give a summary of the incident or crime that occured:</label> 
+    <textarea name="summary" id="summary" cols="20" rows="8"></textarea>
+    </div>
+    
+    
+    <div>
+    <input type="submit" value="submit" name="submit" id="submit" class="show-page-loading-msg" data-theme="d" data-textonly="false" data-textvisible="false" data-msgtext="">
+    </div>
+    
+    
+    </form>   
+       
+</div>
+
+
 
 
 
@@ -146,14 +263,13 @@ function clearPage(){
     </div>
     
     
-    </form>   
-       
+    </form>  
+    
+           
 </div>
+
+
 
 </body>
 </html>
-
-
-
-
 
